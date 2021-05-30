@@ -2,9 +2,11 @@ import requests
 from requests.auth import HTTPBasicAuth
 import re
 import _pikocreds
+from PowerSource import PowerSource
 
-class Piko_inverter(object):
-    def __init__(self, ip_address=_pikocreds.address,username=_pikocreds.usr,password=_pikocreds.pwd):
+class Piko_inverter(PowerSource):
+    def __init__(self, name:str, ip_address=_pikocreds.address,username=_pikocreds.usr,password=_pikocreds.pwd):
+        PowerSource.__init__(self,name)
         self.ip_address = ip_address
         self.username = username
         self.password = password
